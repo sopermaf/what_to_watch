@@ -18,7 +18,8 @@ jobs:
         python-version: 3.8
     - name: Install dependencies
       run: |
-        pipenv install
+        pip install pipenv
+        pipenv install --dev
     - name: Lint with flake8
       run: |
         pipenv run pylint -d fixme what_to_watch/ jobs/ test/
