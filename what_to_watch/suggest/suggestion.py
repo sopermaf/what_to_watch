@@ -1,7 +1,6 @@
 """
-Suggests a movie to the user for
+Movie suggestion handling
 """
-
 
 def suggest_movie() -> str:
     '''
@@ -16,7 +15,3 @@ def suggest_movie() -> str:
     str : suggestion
     '''
     return "Space Jam"
-
-
-if __name__ == "__main__":
-    suggest_movie()
