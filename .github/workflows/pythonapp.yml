@@ -22,12 +22,10 @@ jobs:
         python-version: 3.8
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        pip install flake8 pytest
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        pipenv install
     - name: Lint with flake8
       run: |
-        flake8 what_to_watch/ jobs/ test/
+        pipenv run pylint -d fixme what_to_watch/ jobs/ test/
     - name: Test with pytest
       run: |
-        pytest test
+        pipenv run pytest test
