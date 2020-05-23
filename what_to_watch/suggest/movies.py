@@ -2,13 +2,16 @@
 Movie datatypes and consts
 """
 from typing import Set
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from enum import Enum, unique
 
 # TODO: extend genre
 
 @unique
 class Genre(Enum):
+    '''
+    Enum of media genres
+    '''
     ACTION = 'action'
     COMEDY = 'comedy'
     DRAMA = 'drama'
@@ -19,6 +22,9 @@ class Genre(Enum):
 
 @dataclass
 class Movie:
+    '''
+    dataclass for a movie instance
+    '''
     title: str
     rating: float
     genre: Set[Genre]
