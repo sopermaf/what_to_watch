@@ -1,15 +1,16 @@
 """
 Movie suggestion handling
 """
+from typing import List
 import sys
-import pandas as pd
+import pandas as pd # type: ignore
 
 F_DIR = 'resources/imdb_data.csv'
 ARGS = sys.argv[1:]
 IMDB_DATA = pd.read_csv(F_DIR)
 
 
-def suggest_movie(vals, data) -> str:
+def suggest_movie(vals: List[str], data: pd.DataFrame) -> str:
     '''
     Returns a movie title as a suggestion
 
@@ -35,4 +36,4 @@ def suggest_movie(vals, data) -> str:
 
     return name
 
-#print(suggest_movie(ARGS, IMDB_DATA))
+print(suggest_movie(ARGS, IMDB_DATA))
