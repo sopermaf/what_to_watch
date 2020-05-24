@@ -20,6 +20,16 @@ class Genre(Enum):
     SCI_FI = 'science-fiction'
 
 
+@unique
+class Language(Enum):
+    '''
+    Possible language choices
+    '''
+    EN = 'english'
+    ES = 'spanish'
+    FR = 'french'
+
+
 @dataclass
 class Movie:
     '''

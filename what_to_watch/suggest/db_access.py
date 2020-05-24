@@ -3,7 +3,7 @@ Provides interface for the data
 underpinning the suggestion system
 """
 from typing import Union
-from .movies import Genre, Movie
+from .movies import Genre, Movie, Language
 
 class MovieDataHandler:
     """
@@ -16,7 +16,8 @@ class MovieDataHandler:
     def get_random_movie(
             self,
             threshold_rating: float = 7.0,
-            genre: Union[Genre, None] = None
+            genre: Union[Genre, None] = None,
+            language: Union[Language, None] = Language.EN,
     ) -> Movie:
         '''
         Get a random movie that matches the criteria
