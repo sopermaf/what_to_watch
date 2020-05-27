@@ -1,5 +1,5 @@
 """
-Movie datatypes and consts
+media item datatypes and consts, can be movie or tv series
 """
 from typing import Set
 from dataclasses import dataclass
@@ -25,16 +25,22 @@ class Language(Enum):
     '''
     Possible language choices
     '''
-    EN = 'english'
-    ES = 'spanish'
-    FR = 'french'
+    EN = 'en'
+    ES = 'sp'
+    FR = 'fr'
 
 
 @dataclass
-class Movie:
+class Media_item:
     '''
-    dataclass for a movie instance
+    dataclass for a media instance
     '''
     title: str
+    titleType: str
     rating: float
-    genre: Set[Genre]
+    genre: str
+    language: str
+    year: int
+    num_votes: int
+    is_adult: int
+

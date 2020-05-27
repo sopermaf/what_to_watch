@@ -4,36 +4,23 @@ Movie suggestion handling
 from typing import List
 import sys
 import pandas as pd # type: ignore
+from movie_data_handler import MovieDataHandler
 
 F_DIR = 'resources/imdb_data.csv'
 ARGS = sys.argv[1:]
 IMDB_DATA = pd.read_csv(F_DIR)
 
 
-def suggest_movie(vals: List[str], data: pd.DataFrame) -> str:
+def suggest_movie() -> str:
     '''
     Returns a movie title as a suggestion
-
-    Args
-    ---
-    None
-
-    Returns
-    ---
-    str : suggestion
     '''
-    name = 'space jam'
 
-    if vals[0] == 'movie':
-        data_movie = data[data.type == 'movie']
-        row = data_movie.sample()
-        name = row.item.tolist()[0]
+    movie_handler = MovieDataHandler()
+    movie_handler.get_random_movie(7,'comedy','en')
+    return movie_handler.media_item.title
 
-    if vals[0] == 'tv_show':
-        data_tv = data[data.type == 'tv_show']
-        row = data_tv.sample()
-        name = row.item.tolist()[0]
 
-    return name
 
-print(suggest_movie(ARGS, IMDB_DATA))
+print(suggest_movie())
+#python what_to_watch/suggest/suggestion.py
