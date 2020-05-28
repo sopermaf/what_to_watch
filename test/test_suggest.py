@@ -2,36 +2,32 @@
 
 #import pytest
 
-import pandas as pd
-from what_to_watch.suggest import suggestion
+#import os
+#import sys
+from what_to_watch.suggest.suggestion import suggest_movie
 
-DF_DATA = {'item':  ['Kazam', 'big chicken shaq'],
-           'rating': ['10', '10'],
-           'type': ['movie', 'tv_show']
-           }
+#current_dir = os.path.dirname(os.path.realpath(__file__))
+#parent_dir = os.path.dirname(current_dir)
+#sys.path.append(parent_dir + '//' + 'what_to_watch')
+#sys.path.append(parent_dir + '//' + 'what_to_watch' + '//' + 'suggest')
 
-DF = pd.DataFrame(DF_DATA, columns=['item', 'rating', 'type'])
-ARGS_NULL = ['movies']
-ARGS_MOVIE = ['movie']
-ARGS_TV_SHOW = ['tv_show']
+MOVIE_ON_NO_DATA = "space jam"
 
-def test_suggestion_null():
-    '''function to test suggest_movie module
-    should return null
-    as args value is movies, not movie or tv_show'''
-
-    assert (suggestion.suggest_movie(ARGS_NULL, DF)) == "space jam"
-
-def test_suggestion_tvshow():
-    '''function to test suggest_movie module
-    should return big chicken shaq
-    as args value is tv_show'''
-
-    assert (suggestion.suggest_movie(ARGS_TV_SHOW, DF)) == "big chicken shaq"
-
-def test_suggestion_movie():
-    '''function to test suggest_movie module
+def test_suggestion_movie_correct_params():
+    '''function to test suggest_movie modules
     should return kazam
     as args value is movie'''
 
-    assert (suggestion.suggest_movie(ARGS_MOVIE, DF)) == "Kazam"
+    threshold_rating = 7
+    genre = 'action'
+    language = 'en'
+    assert (suggest_movie(threshold_rating, genre, language)) != MOVIE_ON_NO_DATA
+
+def test_suggestion_movie_false_params():
+    '''function to test suggest_movie module
+    should return kazam
+    as args value is movie'''
+    threshold_rating = 7
+    genre = 'fake'
+    language = 'fake'
+    assert (suggest_movie(threshold_rating, genre, language)) == MOVIE_ON_NO_DATA

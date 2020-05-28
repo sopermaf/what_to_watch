@@ -1,26 +1,21 @@
 """
 Movie suggestion handling
 """
-from typing import List
-import sys
-import pandas as pd # type: ignore
-from movie_data_handler import MovieDataHandler
 
-F_DIR = 'resources/imdb_data.csv'
-ARGS = sys.argv[1:]
-IMDB_DATA = pd.read_csv(F_DIR)
+from what_to_watch.suggest.movie_data_handler import MovieDataHandler
 
-
-def suggest_movie() -> str:
+def suggest_movie(
+        threshold_rating: float = 7.0,
+        genre: str = 'drama',
+        language: str = 'en',
+)-> str:
     '''
     Returns a movie title as a suggestion
     '''
-
     movie_handler = MovieDataHandler()
-    movie_handler.get_random_movie(7,'comedy','en')
+    movie_handler.get_random_movie(threshold_rating, genre, language)
     return movie_handler.media_item.title
 
-
-
-print(suggest_movie())
+#print(suggest_movie(7,'action','en'))
 #python what_to_watch/suggest/suggestion.py
+#python -m what_to_watch.suggest.suggestion

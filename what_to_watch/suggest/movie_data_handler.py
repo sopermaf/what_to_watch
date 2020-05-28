@@ -1,16 +1,12 @@
 """
 Provides interface for the data
 underpinning the suggestion system
+linting saying too few public methods
+input output error related to import from db_handler.db_connection_query
 """
-from typing import Union
-from media_item import Media_item
-import os
-import sys
+from db_handler.db_connection_query import get_media_item, get_data_from_db
+from what_to_watch.suggest.media_item import MediaItem
 
-current_dir = os.path.dirname(os.path.realpath(__file__))
-grand_parent_dir = os.path.dirname(os.path.dirname(current_dir))
-sys.path.append(grand_parent_dir)
-from DB_handler.db_connection_query import get_media_item
 
 class MovieDataHandler:
     """
@@ -25,13 +21,16 @@ class MovieDataHandler:
             threshold_rating: float = 7.0,
             genre: str = 'drama',
             language: str = 'en',
-    ) -> Media_item:
+    ) -> MediaItem:
         '''
         Get a random movie that matches the criteria
         '''
-
-        new_media_item = get_media_item(threshold_rating, genre,language)
+        subset_imdb_data = get_data_from_db(threshold_rating, genre, language)
+        new_media_item = get_media_item(subset_imdb_data)
         self.media_item = new_media_item
 
+#movie_handler = MovieDataHandler()
+#movie_handler.get_random_movie(7,'fds','fds')
+#print(movie_handler.media_item)
 
 #python what_to_watch/suggest/movie_data_handler.py

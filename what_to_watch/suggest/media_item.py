@@ -1,7 +1,6 @@
 """
 media item datatypes and consts, can be movie or tv series
 """
-from typing import Set
 from dataclasses import dataclass
 from enum import Enum, unique
 
@@ -31,16 +30,16 @@ class Language(Enum):
 
 
 @dataclass
-class Media_item:
+class MediaItem:
     '''
-    dataclass for a media instance
+    dataclass for a media instance,
+    pylint limit of 7 attributes is low, we need 8
     '''
     title: str
-    titleType: str
+    title_type: str
     rating: float
     genre: str
     language: str
     year: int
     num_votes: int
     is_adult: int
-
