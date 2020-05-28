@@ -15,7 +15,3 @@ def suggest_movie(
     movie_handler = MovieDataHandler()
     movie_handler.get_random_movie(threshold_rating, genre, language)
     return movie_handler.media_item.title
-
-#print(suggest_movie(7,'action','en'))
-#python what_to_watch/suggest/suggestion.py
-#python -m what_to_watch.suggest.suggestion

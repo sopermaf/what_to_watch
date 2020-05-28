@@ -28,9 +28,3 @@ class MovieDataHandler:
         subset_imdb_data = get_data_from_db(threshold_rating, genre, language)
         new_media_item = get_media_item(subset_imdb_data)
         self.media_item = new_media_item
-
-#movie_handler = MovieDataHandler()
-#movie_handler.get_random_movie(7,'fds','fds')
-#print(movie_handler.media_item)
-
-#python what_to_watch/suggest/movie_data_handler.py

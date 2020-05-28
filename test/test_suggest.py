@@ -1,15 +1,6 @@
 '''file contains modules to test modules in suggestion.py'''
 
-#import pytest
-
-#import os
-#import sys
 from what_to_watch.suggest.suggestion import suggest_movie
-
-#current_dir = os.path.dirname(os.path.realpath(__file__))
-#parent_dir = os.path.dirname(current_dir)
-#sys.path.append(parent_dir + '//' + 'what_to_watch')
-#sys.path.append(parent_dir + '//' + 'what_to_watch' + '//' + 'suggest')
 
 MOVIE_ON_NO_DATA = "space jam"
 
