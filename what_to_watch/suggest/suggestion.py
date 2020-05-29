@@ -14,4 +14,4 @@ def suggest_movie(
     '''
     movie_handler = MovieDataHandler()
     movie_handler.get_random_movie(threshold_rating, genre, language)
-    return movie_handler.media_item.title
+    return str(movie_handler.media_item.title)

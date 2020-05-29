@@ -23,7 +23,7 @@ jobs:
     - name: Lint
       run: |
         pipenv run pylint -d fixme what_to_watch/ test/
-        pipenv run mypy --strict --warn-unused-ignores what_to_watch/
+        pipenv run mypy --strict --ignores-missing-imports what_to_watch/
     - name: Test
       run: |
         pipenv run pytest test
