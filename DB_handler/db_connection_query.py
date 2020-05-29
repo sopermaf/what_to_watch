@@ -4,7 +4,7 @@ file which will have methods to push,pull data from database table set up on azu
 import pandas as pd
 import pyodbc
 
-from what_to_watch.suggest.media_item import MediaItem
+from suggest.media_item import MediaItem
 
 SERVER = 'fitbit-fizzyo-test.database.windows.net'
 DATABASE = 'fitbit_data'

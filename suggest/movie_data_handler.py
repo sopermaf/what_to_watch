@@ -5,7 +5,7 @@ linting saying too few public methods
 input output error related to import from db_handler.db_connection_query
 """
 from db_handler.db_connection_query import get_media_item, get_data_from_db
-from what_to_watch.suggest.media_item import MediaItem
+from suggest.media_item import MediaItem
 
 
 class MovieDataHandler:

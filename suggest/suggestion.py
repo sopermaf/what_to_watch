@@ -2,7 +2,7 @@
 Movie suggestion handling
 """
 
-from what_to_watch.suggest.movie_data_handler import MovieDataHandler
+from suggest.movie_data_handler import MovieDataHandler
 
 def suggest_movie(
         threshold_rating: float = 7.0,

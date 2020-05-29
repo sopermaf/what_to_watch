@@ -1,6 +1,6 @@
 '''file contains modules to test modules in suggestion.py'''
 
-from what_to_watch.suggest.suggestion import suggest_movie
+from suggest.suggestion import suggest_movie
 
 MOVIE_ON_NO_DATA = "space jam"
 
