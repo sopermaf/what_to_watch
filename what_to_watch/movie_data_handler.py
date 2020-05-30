@@ -25,7 +25,7 @@ class MediaItemDataHandler:
     """
     Load, update and select movies
     """
-    # pylint: row[],no-self-use
+    # pylint: disable=too-few-public-methods,no-self-use
 
     def get_random_movie(
             self,
@@ -55,9 +55,9 @@ class SQLLiteMediaItems(MediaItemDataHandler):
             genre: str = 'drama',
             language: str = 'en',
     ) -> MediaItem:
+        # pylint: disable=unused-argument
         with sqlite3.connect(self.db_name) as conn:
             # TODO: update query with params
-            # pylint: disable=unused-argument
             cursor = conn.execute('SELECT * FROM MediaItems ORDER BY RANDOM() LIMIT 1;')
             row = cursor.fetchone()
             cursor.close()
@@ -71,9 +71,9 @@ class SQLLiteMediaItems(MediaItemDataHandler):
         Update the DB with new imdb records from
         a specified CSV file
         '''
-        with open(imdb_csv_path, newline='') as csvfile: 
+        with open(imdb_csv_path, newline='') as csvfile:
             reader = csv.reader(csvfile, delimiter=',', quotechar='"')
-            media_items = [ 
+            media_items = [
                 MediaItem(
                     media_type=row[3],
                     title=row[0],
@@ -87,7 +87,7 @@ class SQLLiteMediaItems(MediaItemDataHandler):
                 for i, row in enumerate(reader)
                 if i
             ]
-        
+
         sql_query = """INSERT INTO MediaItems
             (mediaType, title, averageRating, genres, language, year, numVotes, isAdult) 
             VALUES(?, ?, ?, ?, ?, ?, ?, ?)""" 
