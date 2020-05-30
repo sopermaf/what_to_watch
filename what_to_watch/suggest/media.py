@@ -11,6 +11,7 @@ class MediaItem:
     dataclass for a media instance,
     pylint limit of 7 attributes is low, we need 8
     '''
+    # pylint: disable=too-many-instance-attributes
     title: str
     title_type: str
     rating: float
