@@ -18,4 +18,4 @@ class MediaItem:
     language: str
     year: int
     num_votes: int
-    is_adult: int
+    is_adult: bool

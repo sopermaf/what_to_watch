@@ -1,6 +1,7 @@
 '''file contains modules to test modules in test_db_connection_query.py'''
 
-from db_handler.db_connection_query import get_media_item, get_data_from_db
+#from db_handler.db_connection_query import get_media_item, get_data_from_db
+
 MOVIE_ON_NO_DATA = "space jam"
 
 def test_return_null():
