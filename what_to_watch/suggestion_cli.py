@@ -1,7 +1,6 @@
 """
 Movie suggestion handling
 """
-
 from .movie_data_handler import MediaItemDataHandler, SQLLiteMediaItems
 from .media import MediaItem
 
