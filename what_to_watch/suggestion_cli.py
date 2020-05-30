@@ -1,7 +1,6 @@
 """
 Movie suggestion handling
 """
-
 from .movie_data_handler import MediaItemDataHandler, SQLLiteMediaItems
 from .media import MediaItem
 
@@ -21,4 +20,4 @@ def suggest(
 # include rating, etc
 if __name__ == "__main__":
     media_item = suggest(SQLLiteMediaItems())
-    print(f"You should watch {media_item.title.capitalize()}")
+    print(f"You should watch {media_item.suggestion()}")
