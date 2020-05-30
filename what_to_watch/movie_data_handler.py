@@ -45,7 +45,7 @@ class SQLLiteMediaItems(MediaItemDataHandler):
     '''
     For use with SQLLite DB
     '''
-    def __init__(self, db_name='imdb.db'):
+    def __init__(self, db_name: str = 'imdb.db'):
         super().__init__()
         self.db_name = db_name
 
