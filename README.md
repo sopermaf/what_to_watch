@@ -1,5 +1,13 @@
 # what_to_watch
-Helping you pick something to talk
+Helping you pick something to watch
+
+
+## Running
+
+From Terminal
+```python
+python -m what_to_watch.suggestion_cli
+```
 
 ## Setup
 
