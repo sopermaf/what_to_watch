@@ -5,17 +5,16 @@ from dataclasses import dataclass
 
 # TODO: extend genre
 
-@dataclass
+@dataclass(order=True)
 class MediaItem:
     '''
-    dataclass for a media instance,
-    pylint limit of 7 attributes is low, we need 8
+    dataclass for a media item
     '''
     # pylint: disable=too-many-instance-attributes
+    media_type: str
     title: str
-    title_type: str
     rating: float
-    genre: str
+    genres: str
     language: str
     year: int
     num_votes: int
