@@ -19,3 +19,7 @@ class MediaItem:
     year: int
     num_votes: int
     is_adult: bool
+
+
+    def suggestion(self):
+        return f"<'{self.title}', '{self.rating}/10', '{self.genres}', '{self.year}'>"

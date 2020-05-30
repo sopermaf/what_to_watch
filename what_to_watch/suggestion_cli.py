@@ -20,4 +20,4 @@ def suggest(
 # include rating, etc
 if __name__ == "__main__":
     media_item = suggest(SQLLiteMediaItems())
-    print(f"You should watch {media_item.title.capitalize()}")
+    print(f"You should watch {media_item.suggestion()}")
