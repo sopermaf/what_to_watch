@@ -22,8 +22,10 @@ jobs:
         pipenv install --dev
     - name: Lint
       run: |
-        pipenv run pylint -d fixme what_to_watch/ test/
-        pipenv run mypy --strict suggest/
+        pipenv run pylint -d fixme $PROJECT_DIR test/
+        pipenv run mypy --strict $PROJECT_DIR
+      env:
+        PROJECT_DIR: what_to_watch
     - name: Test
       run: |
         pipenv run pytest test
