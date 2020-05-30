@@ -12,8 +12,8 @@ mypy = "*"
 pandas = "*"
 pylint = "*"
 typing = "*"
-pyodbc = "*"
 wrapt = "*"
+ipython = "*"
 
 [requires]
 python_version = "3.7"

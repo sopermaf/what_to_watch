@@ -12,18 +12,20 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Python 3.8
+    - name: Set up Python 3.7
       uses: actions/setup-python@v2
       with:
-        python-version: 3.8
+        python-version: 3.7
     - name: Install dependencies
       run: |
         pip install pipenv
         pipenv install --dev
     - name: Lint
       run: |
-        pipenv run pylint -d fixme suggest/ test/
-        pipenv run mypy --strict --ignores-missing-imports suggest/
+        pipenv run pylint -d fixme $PROJECT_DIR test/
+        pipenv run mypy --strict $PROJECT_DIR
+      env:
+        PROJECT_DIR: what_to_watch
     - name: Test
       run: |
         pipenv run pytest test
